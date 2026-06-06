@@ -1,7 +1,7 @@
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzXaZkQj_YAim1844cC2fPz3IGJt_LKCburN-k8Ct1eOZ5c9R0g8td3x_496Yqq_iP7/exec";
 
 const PRICE_PER_SHIRT = 500;
-const SHIPPING_PRICE = 72;
+const SHIPPING_PRICE = 89;
 
 const form = document.getElementById("orderForm");
 const prevzeti = document.getElementById("prevzeti");
