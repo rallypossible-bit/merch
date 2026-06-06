@@ -16,6 +16,7 @@ const submitBtn = document.getElementById("submitBtn");
 
 function addItem(defaults = {}) {
   const row = itemTemplate.content.firstElementChild.cloneNode(true);
+
   row.querySelector(".typ").value = defaults.typ || "Pánské";
   row.querySelector(".velikost").value = defaults.velikost || "M";
   row.querySelector(".pocet").value = defaults.pocet || 1;
@@ -58,7 +59,6 @@ function updatePrice() {
 
   totalPieces.textContent = `${pieces} ks`;
   total.textContent = `${finalPrice} Kč`;
-
   zasilkovna.required = prevzeti.value === "Zásilkovna";
 }
 
@@ -76,20 +76,15 @@ addItem({ typ: "Pánské", velikost: "M", pocet: 1 });
 form.addEventListener("submit", async event => {
   event.preventDefault();
 
-  if (GOOGLE_SCRIPT_URL.includes("PASTE_GOOGLE_APPS_SCRIPT_URL_HERE")) {
-    showMessage("Nejdřív vlož do script.js URL z Google Apps Script, která končí na /exec.", "err");
-    return;
-  }
-
   const orderItems = getOrderItems();
   const pieces = orderItems.reduce((sum, item) => sum + item.pocet, 0);
   const shipping = prevzeti.value === "Zásilkovna" ? SHIPPING_PRICE : 0;
   const finalPrice = pieces * PRICE_PER_SHIRT + shipping;
 
   const data = new URLSearchParams();
-  data.append("jmeno", form.jmeno.value.trim());
-  data.append("email", form.email.value.trim());
-  data.append("telefon", form.telefon.value.trim());
+  data.append("jmeno", form.querySelector('[name="jmeno"]').value.trim());
+  data.append("email", form.querySelector('[name="email"]').value.trim());
+  data.append("telefon", form.querySelector('[name="telefon"]').value.trim());
   data.append("polozky", formatItems(orderItems));
   data.append("pocetCelkem", String(pieces));
   data.append("prevzeti", prevzeti.value);
