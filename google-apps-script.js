@@ -1,4 +1,4 @@
-const SPREADSHEET_ID = "SEM_VLOZ_ID_TVE_GOOGLE_TABULKY";
+const SPREADSHEET_ID = "1Mae5YbvrDcD-gk9VfU0YiziWZxqbHHJa6yAefEWUkcA";
 const SHEET_NAME = "Objednávky";
 
 function doGet(e) {
