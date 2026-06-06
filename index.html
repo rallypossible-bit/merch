@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objednávka trička ČAUTĚ!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="photo-wrap">
+        <img src="tricko.jpg" alt="Tričko ČAUTĚ!" class="shirt-photo" />
+      </div>
+
+      <div class="content">
+        <p class="badge">Limitovaná edice</p>
+        <h1>Tričko ČAUTĚ!</h1>
+        <p class="lead">V jedné objednávce můžete objednat více variant triček. U každého řádku vyberte pánské/dámské tričko, velikost a počet kusů.</p>
+
+        <div class="prices">
+          <div>
+            <span>Cena za tričko</span>
+            <strong>500 Kč</strong>
+          </div>
+          <div>
+            <span>Zásilkovna</span>
+            <strong>+72 Kč / objednávka</strong>
+          </div>
+        </div>
+
+        <div class="payment-box">
+          <h3>Platba</h3>
+          <p>Po odeslání objednávky uhraďte příslušnou částku na účet:</p>
+          <div class="account-number">0000001/0800</div>
+          <p>Do zprávy pro příjemce uveďte své jméno a příjmení.</p>
+        </div>
+
+        <form id="orderForm">
+          <h2>Kontaktní údaje</h2>
+          <div class="grid">
+            <label>Jméno a příjmení
+              <input name="jmeno" required autocomplete="name" />
+            </label>
+
+            <label>E-mail
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+
+            <label>Telefon
+              <input name="telefon" required autocomplete="tel" />
+            </label>
+
+            <label>Osobní převzetí na závodě / Zásilkovnou
+              <select name="prevzeti" id="prevzeti" required>
+                <option value="Osobní převzetí na závodě">Osobní převzetí na závodě</option>
+                <option value="Zásilkovna">Zásilkovna</option>
+              </select>
+            </label>
+          </div>
+
+          <label id="zasilkovnaBox">Název a adresa Vaší zásilkovny
+            <input name="zasilkovna" id="zasilkovna" placeholder="Např. Z-BOX / pobočka, ulice, město" />
+          </label>
+
+          <div class="items-head">
+            <h2>Objednávaná trička</h2>
+            <button type="button" class="secondary" id="addItem">+ Přidat další velikost</button>
+          </div>
+
+          <div id="items"></div>
+
+          <template id="itemTemplate">
+            <div class="item-row">
+              <label>Typ trička
+                <select class="typ" required>
+                  <option value="Pánské">Pánské</option>
+                  <option value="Dámské">Dámské</option>
+                </select>
+              </label>
+              <label>Velikost
+                <select class="velikost" required>
+                  <option value="XS">S</option>
+		  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="2XL">XXL</option>
+		  <option value="3XL">XXXL</option>
+		  <option value="4XL">XXXXL</option>
+                </select>
+              </label>
+              <label>Počet kusů
+                <input class="pocet" type="number" min="1" value="1" required />
+              </label>
+              <button type="button" class="remove" title="Odebrat řádek">Odebrat</button>
+            </div>
+          </template>
+
+          <div class="summary">
+            <div>
+              <span>Počet triček</span>
+              <strong id="totalPieces">1 ks</strong>
+            </div>
+            <div>
+              <span>Celkem k úhradě</span>
+              <strong id="total">500 Kč</strong>
+            </div>
+          </div>
+
+          <input type="hidden" name="polozky" id="polozky" />
+          <input type="hidden" name="pocetCelkem" id="pocetCelkem" />
+          <input type="hidden" name="celkem" id="celkem" />
+
+          <button type="submit" id="submitBtn">Odeslat objednávku</button>
+          <p id="message" class="message"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
