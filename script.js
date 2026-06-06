@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/library/d/1VdGjfpuCzo3Kgyw5Lnu9ny9QUnT52E4oxtBgxCXMVvM6JAeAQybZF5iS/2";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyctuXMn6tPoHNViXWLupDEIe4tiic8Ee3x9oIOl11kbFP2tXY32RPV2VOyigLLaEYW/exec";
 
 const PRICE_PER_SHIRT = 500;
 const SHIPPING_PRICE = 89;
